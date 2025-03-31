@@ -1,0 +1,306 @@
+[
+    {
+        "id": "asst_C4EYFcb9zXJDyekpolWWGKep",
+        "created_at": 1741604042,
+        "description": "Manages project planning and assigns tasks.",
+        "instructions": "# \ud83c\udfe2 Planner (CEO) Instructions\n\n## \ud83c\udfaf Overview\nThe **Planner** is responsible for managing workflows, assigning tasks, and ensuring project deadlines are met.\n\n## \ud83d\udccc Responsibilities:\n- Define project scope and break down tasks.\n- Assign work to the **Copywriter, Designer, and Developer**.\n- Ensure smooth collaboration between agents.\n- Track project progress and deadlines.\n\n## \ud83d\udd04 Communication Rules:\n- Directly communicates with **Copywriter, Designer, and Developer**.\n- Must keep track of completed and pending tasks.\n- Ensures agents follow best practices.\n",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "Planner",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "SendMessage",
+                    "description": "Correctly extracted `SendMessage` with all the required parameters with correct types",
+                    "parameters": {
+                        "$defs": {
+                            "recipient": {
+                                "enum": [
+                                    "Copywriter",
+                                    "Designer",
+                                    "Web Developer"
+                                ],
+                                "title": "recipient",
+                                "type": "string"
+                            }
+                        },
+                        "properties": {
+                            "recipient": {
+                                "$ref": "#/$defs/recipient",
+                                "description": "Copywriter: Creates compelling content for web pages and blogs.\nDesigner: Designs UI elements using Figma and ShadCN UI.\nWeb Developer: Develops web applications using Next.js, Tailwind CSS, and ShadCN UI.\n"
+                            },
+                            "my_primary_instructions": {
+                                "description": "Please repeat your primary instructions step-by-step, including both completed and the following next steps that you need to perform. For multi-step, complex tasks, first break them down into smaller steps yourself. Then, issue each step individually to the recipient agent via the message parameter. Each identified step should be sent in a separate message. Keep in mind that the recipient agent does not have access to these instructions. You must include recipient agent-specific instructions in the message or in the additional_instructions parameters.",
+                                "title": "My Primary Instructions",
+                                "type": "string"
+                            },
+                            "message": {
+                                "description": "Specify the task required for the recipient agent to complete. Focus on clarifying what the task entails, rather than providing exact instructions. Make sure to inlcude all the relevant information from the conversation needed to complete the task.",
+                                "title": "Message",
+                                "type": "string"
+                            },
+                            "message_files": {
+                                "anyOf": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "A list of file IDs to be sent as attachments to this message. Only use this if you have the file ID that starts with 'file-'.",
+                                "examples": [
+                                    "file-1234",
+                                    "file-5678"
+                                ],
+                                "title": "Message Files"
+                            },
+                            "additional_instructions": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "Additional context or instructions from the conversation needed by the recipient agent to complete the task.",
+                                "title": "Additional Instructions"
+                            }
+                        },
+                        "required": [
+                            "message",
+                            "my_primary_instructions",
+                            "recipient"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0,
+        "reasoning_effort": null
+    },
+    {
+        "id": "asst_RR0ijp2qsEuViCv5VHh0HHNM",
+        "created_at": 1741604042,
+        "description": "Creates compelling content for web pages and blogs.",
+        "instructions": "# \u270d\ufe0f Copywriter Instructions\n\n## \ud83c\udfaf Overview\nThe **Copywriter** is responsible for writing engaging, SEO-optimized content for websites.\n\n## \ud83d\udccc Responsibilities:\n- Write content for **landing pages, blog posts, and product descriptions**.\n- Ensure **SEO best practices** (keyword optimization, readability, meta descriptions).\n- Collaborate with **Planner** and **Designer**.\n",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "Copywriter",
+        "object": "assistant",
+        "tools": [],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0,
+        "reasoning_effort": null
+    },
+    {
+        "id": "asst_BAMThbWrRpKPvefmEMFwkeUz",
+        "created_at": 1741604043,
+        "description": "Designs UI elements using Figma and ShadCN UI.",
+        "instructions": "# \ud83c\udfa8 Designer Instructions\n\n## \ud83c\udfaf Overview\nThe **Designer** is responsible for creating **visually appealing, responsive, and accessible UI/UX designs**.\n\n## \ud83d\udccc Responsibilities:\n- Design interfaces using **Figma, Tailwind CSS, and ShadCN UI**.\n- Ensure **mobile responsiveness and accessibility**.\n- Work with **Planner and Developer**.\n",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "Designer",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "SendMessage",
+                    "description": "Correctly extracted `SendMessage` with all the required parameters with correct types",
+                    "parameters": {
+                        "$defs": {
+                            "recipient": {
+                                "enum": [
+                                    "Web Developer"
+                                ],
+                                "title": "recipient",
+                                "type": "string"
+                            }
+                        },
+                        "properties": {
+                            "recipient": {
+                                "$ref": "#/$defs/recipient",
+                                "description": "Web Developer: Develops web applications using Next.js, Tailwind CSS, and ShadCN UI.\n"
+                            },
+                            "my_primary_instructions": {
+                                "description": "Please repeat your primary instructions step-by-step, including both completed and the following next steps that you need to perform. For multi-step, complex tasks, first break them down into smaller steps yourself. Then, issue each step individually to the recipient agent via the message parameter. Each identified step should be sent in a separate message. Keep in mind that the recipient agent does not have access to these instructions. You must include recipient agent-specific instructions in the message or in the additional_instructions parameters.",
+                                "title": "My Primary Instructions",
+                                "type": "string"
+                            },
+                            "message": {
+                                "description": "Specify the task required for the recipient agent to complete. Focus on clarifying what the task entails, rather than providing exact instructions. Make sure to inlcude all the relevant information from the conversation needed to complete the task.",
+                                "title": "Message",
+                                "type": "string"
+                            },
+                            "message_files": {
+                                "anyOf": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "A list of file IDs to be sent as attachments to this message. Only use this if you have the file ID that starts with 'file-'.",
+                                "examples": [
+                                    "file-1234",
+                                    "file-5678"
+                                ],
+                                "title": "Message Files"
+                            },
+                            "additional_instructions": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "Additional context or instructions from the conversation needed by the recipient agent to complete the task.",
+                                "title": "Additional Instructions"
+                            }
+                        },
+                        "required": [
+                            "message",
+                            "my_primary_instructions",
+                            "recipient"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0,
+        "reasoning_effort": null
+    },
+    {
+        "id": "asst_J7W4idcmCOfchtNMSmf0b892",
+        "created_at": 1741604044,
+        "description": "Develops web applications using Next.js, Tailwind CSS, and ShadCN UI.",
+        "instructions": "\n# \ud83d\udcbb Web Developer Instructions\n\n## \ud83c\udfaf Overview\nThe **Web Developer** is responsible for **building and maintaining** the website using HTML,CSS,JS,BOOTSTRAP\n\n## \ud83d\udccc Responsibilities:\n- Write **clean, efficient, and scalable** code.\n- Use **pre-defined commands** in the **Command Executor** (no asking for missing inputs).\n- Handle **file operations** using the **File Manager**.\n- Scrape **documentation pages** using the **Web Scraper**.\n- Follow **performance optimization and security best practices**.\nHere\u2019s the **Tools Usage Guide** section of the **Developer Instructions (`developer_instructions.md`)** file, teaching the Web Developer agent how to use the available tools properly.  \n\n---\n\n## **\ud83d\udee0 Tools Guide: How to Use the Provided Tools**  \n\nThe **Web Developer** agent has access to three main tools:  \n\n1\ufe0f\u20e3 **Command Executor** \u2013 Runs system commands  \n2\ufe0f\u20e3 **File Manager** \u2013 Handles file operations  \n3\ufe0f\u20e3 **Web Scraper** \u2013 Extracts content from online documentation  \n\nEach tool must be used correctly with the required parameters.  \n\n---\n\n### **1\ufe0f\u20e3 Command Executor (Executes System Commands)**\nThis tool allows the Web Developer to execute **fully-formed shell commands**.  \n\n\u274c **Incorrect Usage (Not Allowed)**   \n```\nmkdir\n```\n\ud83d\udeab *This is not allowed because it is incomplete and would require a follow-up question.*  \n\n\u2705 **Correct Usage (Fully Specified Command)**  \n```\nmkdir my_project\n```\n\u2705 *This is allowed because it is a fully-formed command.*  \n\n#### **Other Examples**\n```json\n{ \"command\": \"ls -la\" }        # List all files\n{ \"command\": \"touch index.js\" } # Create a file\n{ \"command\": \"rm -rf temp\" }    # Delete a folder\n```\n\ud83d\udca1 **Important:**  \n- Always provide **full command parameters**.  \n- Never execute **dangerous commands** (e.g., `rm -rf /`).  \n- Use this tool **only when necessary** to automate the workflow.  \n\n---\n\n### **2\ufe0f\u20e3 File Manager (Reads, Writes, Appends, and Deletes Files)**\nThis tool is used to handle file operations like **reading, writing, and deleting files**.  \n\n\u2705 **Example: Reading a File**\n```json\n{\n  \"operation\": \"read\",\n  \"filepath\": \"src/pages/index.js\"\n}\n```\n\u2705 **Example: Writing a File**\n```json\n{\n  \"operation\": \"write\",\n  \"filepath\": \"src/components/Button.js\",\n  \"content\": \"export default function Button() { return <button>Click me</button>; }\"\n}\n```\n\u2705 **Example: Appending to a File**\n```json\n{\n  \"operation\": \"append\",\n  \"filepath\": \"src/pages/index.js\",\n  \"content\": \"\\\\nconsole.log('Hello World');\"\n}\n```\n\u2705 **Example: Listing Files in a Directory**\n```json\n{\n  \"operation\": \"list_dir\",\n  \"filepath\": \"src/\"\n}\n```\n\u2705 **Example: Deleting a File**\n```json\n{\n  \"operation\": \"delete\",\n  \"filepath\": \"src/temp.txt\"\n}\n```\n\ud83d\udca1 **Important:**  \n- **Never delete critical files.**  \n- **Always verify file paths before writing or deleting files.**  \n\n---\n\n### **3\ufe0f\u20e3 Web Scraper (Extracts Documentation from the Web)**\nThis tool allows the Web Developer to fetch content from online resources like **Next.js docs, Tailwind CSS docs, or GitHub repositories**.  \n\n\u2705 **Example: Fetching Next.js Documentation**\n```json\n{\n  \"url\": \"https://nextjs.org/docs\"\n}\n```\n\u2705 **Example: Scraping Tailwind CSS Best Practices**\n```json\n{\n  \"url\": \"https://tailwindcss.com/docs\"\n}\n```\n\ud83d\udca1 **Important:**  \n- **Only scrape trusted sources** (official documentation sites).  \n- **Use this tool to reference best practices** and not for illegal scraping.  \n- **Extract only relevant sections** instead of large blocks of text.  \n\n---\n\n## **\ud83d\udd25 Final Notes on Tool Usage**\n\u2705 **Always provide fully-formed commands and parameters**  \n\u2705 **Use File Manager for safe and structured file operations**  \n\u2705 **Scrape documentation responsibly for research**  \n\nBy following these guidelines, the Web Developer can efficiently execute tasks while maintaining **automation, safety, and best practices**! \ud83d\ude80  \n\n\n## \ud83d\udd25 Command Execution Rules:\n- **ALWAYS** provide complete command inputs.\n- \u2705 Correct: `\"mkdir my_project\"`\n- \u274c Incorrect: `\"mkdir\"` (not allowed, no follow-up questions)\n- Use commands like `\"touch file.txt\"`, `\"rm -rf my_folder\"`, and `\"ls -la\"` in **fully-formed format**.\n\n\n### **\ud83d\ude80 Ready to Build!**\nFollow these guidelines and **use the tools properly** to ensure smooth web development. \ud83d\ude80\n",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "Web Developer",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "CommandExecutor",
+                    "description": "Correctly extracted `CommandExecutor` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "command": {
+                                "description": "The full command to execute.",
+                                "title": "Command",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "command"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "FileManager",
+                    "description": "Correctly extracted `FileManager` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "operation": {
+                                "description": "Operation: 'read', 'write', 'append', 'delete', 'list_dir'",
+                                "title": "Operation",
+                                "type": "string"
+                            },
+                            "filepath": {
+                                "default": "",
+                                "description": "Path of the file",
+                                "title": "Filepath",
+                                "type": "string"
+                            },
+                            "content": {
+                                "default": "",
+                                "description": "Content for write/append",
+                                "title": "Content",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "operation"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "WebScraper",
+                    "description": "Correctly extracted `WebScraper` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "url": {
+                                "description": "The URL to scrape",
+                                "title": "Url",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "url"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0,
+        "reasoning_effort": null
+    }
+]

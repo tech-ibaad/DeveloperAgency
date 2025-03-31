@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Exotic Kebabs - Landing Page Wireframe</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: url('subtle-pattern.png') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #D4AF37; /* Gold */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4E342E; /* Deep Brown */
+            font-family: 'Playfair Display', serif;
+        }
+        .hero {
+            background: url('exotic-kebabs.jpg') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            color: #FFFFFF;
+            font-size: 3em;
+            z-index: 1;
+        }
+        .hero button {
+            background-color: #0F52BA; /* Sapphire Blue */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .about {
+            background-color: #E07A5F; /* Terracotta */
+            padding: 50px;
+            color: #FFFFFF;
+        }
+        .about h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .menu-highlights {
+            padding: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .menu-item {
+            flex: 1 1 calc(33.333% - 20px);
+            background-color: #FFFFFF;
+            padding: 20px;
+            border: 1px solid #D4AF37; /* Gold */
+        }
+        .menu-item h4 {
+            color: #D4AF37; /* Gold */
+            font-family: 'Playfair Display', serif;
+        }
+        .testimonials {
+            background-color: #F5F5F5;
+            padding: 50px;
+        }
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        .testimonial p {
+            color: #6B8E23; /* Olive Green */
+        }
+        .contact {
+            padding: 50px;
+            background-color: #FFFFFF;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact button {
+            background-color: #2E8B57; /* Emerald Green */
+            color: #FFFFFF;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #4E342E; /* Deep Brown */
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Exotic Kebabs</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="overlay"></div>
+        <h2>Experience the Taste of Exotic</h2>
+        <button>Order Now</button>
+    </section>
+    <section class="about">
+        <h3>About Us</h3>
+        <p>Welcome to The Exotic Kebabs, where we bring the flavors of the world to your plate. Our mission is to provide an unforgettable dining experience with our unique and delicious kebabs.</p>
+    </section>
+    <section class="menu-highlights">
+        <div class="menu-item">
+            <h4>Signature Kebab</h4>
+            <p>A delightful mix of spices and tender meat, grilled to perfection.</p>
+        </div>
+        <div class="menu-item">
+            <h4>Vegetarian Delight</h4>
+            <p>A flavorful combination of fresh vegetables and exotic spices.</p>
+        </div>
+        <div class="menu-item">
+            <h4>Spicy Lamb Kebab</h4>
+            <p>For those who love a kick, our spicy lamb kebab is a must-try.</p>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h3>What Our Customers Say</h3>
+        <div class="testimonial">
+            <p>"The best kebabs I've ever had! The flavors are truly exotic."</p>
+        </div>
+        <div class="testimonial">
+            <p>"A wonderful dining experience with a cozy atmosphere."</p>
+        </div>
+    </section>
+    <section class="contact">
+        <h3>Contact Us</h3>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>Follow us on</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </footer>
+</body>
+</html>

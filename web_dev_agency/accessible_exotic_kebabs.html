@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Exotic Kebabs - Accessible Design</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: url('subtle-pattern.png') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #D4AF37; /* Gold */
+        }
+        .hero {
+            background: url('exotic-kebabs.jpg') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            color: #FFFFFF;
+            font-size: 3em;
+            z-index: 1;
+        }
+        .hero button {
+            background-color: #0F52BA; /* Sapphire Blue */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .about {
+            background-color: #E07A5F; /* Terracotta */
+            padding: 50px;
+            color: #FFFFFF;
+        }
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .menu-highlights {
+            padding: 50px;
+        }
+        .menu-item {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border: 1px solid #D4AF37; /* Gold */
+            margin-bottom: 20px;
+        }
+        .menu-item h3 {
+            color: #D4AF37; /* Gold */
+            font-family: 'Playfair Display', serif;
+        }
+        .testimonials {
+            background-color: #F5F5F5;
+            padding: 50px;
+        }
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        .testimonial p {
+            color: #6B8E23; /* Olive Green */
+        }
+        .contact {
+            padding: 50px;
+            background-color: #FFFFFF;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact button {
+            background-color: #2E8B57; /* Emerald Green */
+            color: #FFFFFF;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #4E342E; /* Deep Brown */
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid" role="banner">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <h1>The Exotic Kebabs</h1>
+            </div>
+            <div class="col-6">
+                <nav class="navbar navbar-expand-lg navbar-light" role="navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero" role="img" aria-label="Exotic Kebabs">
+            <div class="overlay"></div>
+            <h2>Experience the Taste of Exotic</h2>
+            <button aria-label="Order Now">Order Now</button>
+        </section>
+        <section class="about container" role="region" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Us</h2>
+            <p>Welcome to The Exotic Kebabs, where we bring the flavors of the world to your plate. Our mission is to provide an unforgettable dining experience with our unique and delicious kebabs.</p>
+        </section>
+        <section class="menu-highlights container" role="region" aria-labelledby="menu-heading">
+            <h2 id="menu-heading">Menu Highlights</h2>
+            <div class="row">
+                <div class="col-md-4 menu-item" role="article">
+                    <h3>Signature Kebab</h3>
+                    <p>A delightful mix of spices and tender meat, grilled to perfection.</p>
+                </div>
+                <div class="col-md-4 menu-item" role="article">
+                    <h3>Vegetarian Delight</h3>
+                    <p>A flavorful combination of fresh vegetables and exotic spices.</p>
+                </div>
+                <div class="col-md-4 menu-item" role="article">
+                    <h3>Spicy Lamb Kebab</h3>
+                    <p>For those who love a kick, our spicy lamb kebab is a must-try.</p>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials container" role="region" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">What Our Customers Say</h2>
+            <div class="testimonial">
+                <p>"The best kebabs I've ever had! The flavors are truly exotic."</p>
+            </div>
+            <div class="testimonial">
+                <p>"A wonderful dining experience with a cozy atmosphere."</p>
+            </div>
+        </section>
+        <section class="contact container" role="region" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Us</h2>
+            <form>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Your Name" aria-required="true">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Your Email" aria-required="true">
+                <label for="message">Your Message</label>
+                <textarea id="message" class="form-control" placeholder="Your Message" aria-required="true"></textarea>
+                <button type="submit" class="btn btn-success" aria-label="Send Message">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer class="container-fluid" role="contentinfo">
+        <p>Follow us on</p>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
